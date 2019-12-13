@@ -347,7 +347,7 @@
                   v-model="servicio.CysFalla"
                 />                
                 <span class="icon is-small is-left">
-                  <i class="fa fa-car-crash"></i>
+                  <i class="fas fa-car-crash"></i>
                 </span>
               </div>
             </div>
