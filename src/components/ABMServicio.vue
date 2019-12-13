@@ -51,9 +51,13 @@
                 <label class="label" for="tpoAfiliacion">Tipo de Afiliación</label>
                 <div class="control">
                   <div class="select width100Porcent">
-                    <select name="tpoAfiliacion" id="tpoAfiliacion" v-model="servicio.CysTpoAfi" 
-                      class="allWidth100">
-                      <option value="Socio Vehículo" >Socio Vehículo</option>
+                    <select
+                      name="tpoAfiliacion"
+                      id="tpoAfiliacion"
+                      v-model="servicio.CysTpoAfi"
+                      class="allWidth100"
+                    >
+                      <option value="Socio Vehículo">Socio Vehículo</option>
                       <option value="Socio Anterior">Socio Anterior</option>
                       <option value="Socio Persona">Socio Persona</option>
                       <option value="Socio Mixto">Socio Mixto</option>
@@ -81,7 +85,7 @@
                 </span>
               </div>
             </div>
-            <div class="column is-2 ">
+            <div class="column is-2">
               <label for="ultPago" class="label">Último Pago:</label>
               <div class="columns">
                 <div class="column padding-right0">
@@ -95,7 +99,7 @@
                       v-model="servicio.CysMesPgo"
                       @blur="validoMes('ultPago')"
                     />
-                  </div>              
+                  </div>
                 </div>
                 <div class="column padding-left5">
                   <div class="control">
@@ -137,8 +141,13 @@
                 </div>
                 <div class="column is-8" style="padding-left: 5px">
                   <div class="control">
-                    <input type="text" class="input" id="texto" name="texto" 
-                      v-model="servicio.EspDesc"/>
+                    <input
+                      type="text"
+                      class="input"
+                      id="texto"
+                      name="texto"
+                      v-model="servicio.EspDesc"
+                    />
                   </div>
                 </div>
               </div>
@@ -342,40 +351,45 @@ export default {
   },
   methods: {
     validoMes(id) {
-      console.log('Valido mes');
-      if((this.servicio.CysMesPgo < 1 || this.servicio.CysMesPgo > 12) && this.validMes === false ){
-        
+      console.log("Valido mes");
+      if (
+        (this.servicio.CysMesPgo < 1 || this.servicio.CysMesPgo > 12) &&
+        this.validMes === false
+      ) {
         console.log(id);
-        let filId = '"' + id + '"'; 
+        let filId = '"' + id + '"';
         console.log(filId);
         console.log(document.getElementById(id));
         document.getElementById(id).focus();
         alert("Mes invalido, verifique");
         this.validMes = true;
         //document.getElementById(filId).focus();
-      }else{
+      } else {
         this.validMes = false;
       }
     },
     validoAnio(id) {
-      console.log('Valido anio');
-      if(this.servicio.CysAnoPgo < 1900 && this.validAnio === false ){
-        let filId = '"' + id + '"'
+      console.log("Valido anio");
+      if (this.servicio.CysAnoPgo < 1900 && this.validAnio === false) {
+        let filId = '"' + id + '"';
         document.getElementById(id).focus();
         alert("Año invalido, verifique");
         this.validAnio = true;
-      }else{
+      } else {
         this.validAnio = false;
       }
     },
-    validoDigitCheck(id){
-      console.log('Valido DigitCheck');
-      if((this.servicio.CysChkDig < 0 || this.servicio.CysChkDig > 9)  && this.validDigitCheck === false ){
-        let filId = '"' + id + '"'
+    validoDigitCheck(id) {
+      console.log("Valido DigitCheck");
+      if (
+        (this.servicio.CysChkDig < 0 || this.servicio.CysChkDig > 9) &&
+        this.validDigitCheck === false
+      ) {
+        let filId = '"' + id + '"';
         document.getElementById(id).focus();
         alert("Digito Verificador invalido, verifique");
         this.validDigitCheck = true;
-      }else{
+      } else {
         this.validDigitCheck = false;
       }
     },
@@ -412,15 +426,14 @@ export default {
 </script>
 
 <style scoped>
-
 #update {
   color: white;
 }
-.padding-left5{
+.padding-left5 {
   padding-left: 5px;
 }
 
-.padding-right0{
+.padding-right0 {
   padding-right: 0px;
 }
 
