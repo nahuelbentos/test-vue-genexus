@@ -1,7 +1,7 @@
 <template>
   <div class="columns" style="margin: 10px 25px;">
     <div class="column">
-      <article class="message is-info">
+      <article class="message is-info box">
         <div class="message-header">
           <h2> {{ titulo }} </h2>
         </div>
@@ -103,7 +103,7 @@
                   v-model="servicio.CysTiVeId"
                 />
                 <span class="icon is-small is-left">
-                  <i class="fa fa-user"></i>
+                  <i class="fa fa-car"></i>
                 </span>
               </div>
             </div>
@@ -279,7 +279,7 @@
             </div>
             <div class="column">
               <label for="matricula" class="label">Matrícula</label>
-              <div class="control has-icons-left">
+              <div class="control">
                 <input
                   type="text"
                   class="input"
@@ -291,7 +291,7 @@
             </div>
             <div class="column">
               <label for="modelo" class="label">Modelo</label>
-              <div class="control has-icons-left">
+              <div class="control">
                 <input
                   type="text"
                   class="input"
@@ -314,7 +314,7 @@
             </div>
             <div class="column">
               <label for="movilEntrada" class="label">Móvil Entrada</label>
-              <div class="control has-icons-left">
+              <div class="control">
                 <input
                   type="text"
                   class="input"
@@ -326,7 +326,7 @@
             </div>
             <div class="column">
               <label for="movilNro" class="label">Número</label>
-              <div class="control has-icons-left">
+              <div class="control">
                 <input
                   type="number"
                   class="input"
@@ -345,7 +345,10 @@
                   id="fallaDeclarada"
                   name="fallaDeclarada"
                   v-model="servicio.CysFalla"
-                />
+                />                
+                <span class="icon is-small is-left">
+                  <i class="fa fa-car-crash"></i>
+                </span>
               </div>
             </div>
           </div>
@@ -363,7 +366,7 @@
                   </div>
                 </div>
                 <div class="column">
-                  <div class="control has-icons-left">
+                  <div class="control">
                     <input
                       type="time"
                       class="input"
@@ -379,7 +382,7 @@
               <label for="CyfFunId" class="label">Funcionario</label>              
               <div class="columns">
                 <div class="column padding-right0">
-                  <div class="control has-icons-left">
+                  <div class="control">
                     <input
                       type="number"
                       class="input"
@@ -390,7 +393,7 @@
                   </div>
                 </div>                
                 <div class="column is-10 padding-left5">
-                  <div class="control has-icons-left">
+                  <div class="control">
                     <input
                       type="text"
                       class="input"
@@ -404,7 +407,7 @@
             </div>            
             <div class="column padding-left5">
               <label for="cysBox" class="label">Box</label>   
-              <div class="control has-icons-left">
+              <div class="control">
                 <input
                   type="number"
                   class="input"
@@ -423,14 +426,14 @@
             <div class="column is-6">
               <div class="columns">
                 <div class="column is-4">
-                  <label for="horaFin" class="label">Inicio</label>
+                  <label for="horaFin" class="label">Fin</label>
                   <div class="control">
                     <input type="time" class="input" id="horaFin" name="horaFin" v-model="servicio.cysFch" />
                   </div>
                 </div>
                 <div class="column is-6">
                   <label for="CysMEx2" class="label">Móvil Salida</label>   
-                  <div class="control has-icons-left">
+                  <div class="control">
                     <input
                       type="number"
                       class="input"
@@ -442,7 +445,7 @@
                 </div>                         
                 <div class="column is-10">
                   <label for="CysMov2" class="label">Número</label>   
-                  <div class="control has-icons-left">
+                  <div class="control">
                     <input
                       type="text"
                       class="input"
@@ -456,7 +459,40 @@
             </div>
           </div>  
           <!-- Octava fila de datos - [end] -->
-
+          
+          <!-- Novena fila de datos - [start] -->
+          
+          <div class="columns">
+                    
+            <div class="container">           
+              <div class="column is-12">
+                <label for="cysObs" class="label">Observaciones</label>   
+                <div class="control">
+                  <input
+                    type="class"
+                    class="input"
+                    id="cysObs"
+                    name="cysObs"
+                    v-model="servicio.CysObs"
+                  />
+                </div>
+              </div>
+              
+              <div class="column">  
+                <div class="control">
+                  <textarea
+                    type="class"
+                    class="textarea"
+                    id="cysObs2"
+                    name="cysObs2"
+                    v-model="servicio.CysObs2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Novena fila de datos - [end] -->
           <div class="columns">
             <div class="column is-4 is-offset-4" id="update">
               <a class="button is-info width100Porcent" @click="update">
