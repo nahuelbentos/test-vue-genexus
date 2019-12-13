@@ -3,18 +3,40 @@
     <div class="column">
       <article class="message is-info">
         <div class="message-header">
-          <h2>{{titulo}}</h2>
+          <h2> {{ titulo }} </h2>
         </div>
         <div class="message-body field">
           <!-- Primer fila de datos - [start] -->
           <div class="columns">
             <div class="column">
-              <label for="nombre" class="label">Nombre:</label>
+              <label for="cysFecha" class="label">Fecha:</label>
               <div class="control">
-                <input type="text" class="input" placeholder="Nombre completo" />
+                <input name="cysFecha" type="date" class="input" placeholder="Fecha" v-model="servicio.CysFecha"/>
+              </div>
+            </div>
+            <div class="column">
+              <label for="cysOrd" class="label">Orden:</label>
+              <div class="control">
+                <input name="cysOrd" type="text" class="input" placeholder="Orden" v-model="servicio.CysOrd"/>
+              </div>
+            </div>
+            <div class="column">
+              <label for="cyTpoClie" class="label">Procedencia:</label>
+              <div class="control">
+                <input name="cyTpoClie" type="text" class="input" placeholder="Procedencia" v-model="servicio.CyTpoClie"/>
+              </div>
+            </div>
+            <div class="column">
+              <label for="cysCancel" class="label">Estado:</label>
+              <div class="control">
+                <input name="cysCancel" id="cysCancel" type="text" v-bind:class="classEstado" placeholder="Estado"  v-model="estado"/>
               </div>
             </div>
           </div>
+          
+          <!-- Primer fila de datos - [end] -->
+          
+          <!-- Segunda fila de datos - [start] -->
           <div class="columns">
             <div class="column">
               <label for="cedula" class="label">Cédula:</label>
@@ -57,13 +79,13 @@
                       v-model="servicio.CysTpoAfi"
                       class="allWidth100"
                     >
-                      <option value="Socio Vehículo">Socio Vehículo</option>
-                      <option value="Socio Anterior">Socio Anterior</option>
-                      <option value="Socio Persona">Socio Persona</option>
-                      <option value="Socio Mixto">Socio Mixto</option>
-                      <option value="Socio Oficina">Socio Oficina</option>
-                      <option value="Socio Temporal">Socio Temporal</option>
-                      <option value="Socio Básico">Socio Básico</option>
+                      <option value="SV">Socio Vehículo</option>
+                      <option value="S">Socio Anterior</option>
+                      <option value="SP">Socio Persona</option>
+                      <option value="SPV">Socio Mixto</option>
+                      <option value="SO">Socio Oficina</option>
+                      <option value="ST">Socio Temporal</option>
+                      <option value="SB">Socio Básico</option>
                     </select>
                   </div>
                 </div>
@@ -117,9 +139,9 @@
               </div>
             </div>
           </div>
-          <!-- Primer fila de datos - [end] -->
+          <!-- Segunda fila de datos - [end] -->
 
-          <!-- Segunda fila de datos - [start] -->
+          <!-- Tercer fila de datos - [start] -->
           <div class="columns">
             <div class="column is-6">
               <label for="socio" class="label">Socio</label>
@@ -163,11 +185,11 @@
                       class="allWidth100"
                       v-model="servicio.CysCat"
                     >
-                      <option value="Suscriptor">Suscriptor</option>
-                      <option value="Activo">Activo</option>
-                      <option value="Vitalicio">Vitalicio</option>
-                      <option value="Oficina">Oficina</option>
-                      <option value="Honorario">Honorario</option>
+                      <option value="S">Suscriptor</option>
+                      <option value="A">Activo</option>
+                      <option value="V">Vitalicio</option>
+                      <option value="O">Oficina</option>
+                      <option value="H">Honorario</option>
                     </select>
                   </div>
                 </div>
@@ -184,19 +206,19 @@
                       class="allWidth100"
                       v-model="servicio.CysFam"
                     >
-                      <option value="Titular">Titular</option>
-                      <option value="Conyuge">Conyuge</option>
-                      <option value="Hijos">Hijos</option>
-                      <option value="Otros">Otros</option>
+                      <option value="T">Titular</option>
+                      <option value="C">Conyuge</option>
+                      <option value="H">Hijos</option>
+                      <option value="O">Otros</option>
                     </select>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Segunda fila de datos - [end] -->
+          <!-- Tercera fila de datos - [end] -->
 
-          <!-- Tercera fila de datos - [start] -->
+          <!-- Cuarta fila de datos - [start] -->
           <div class="columns">
             <div class="column">
               <label for="nombre" class="label">Nombre</label>
@@ -245,9 +267,9 @@
               </div>
             </div>
           </div>
-          <!-- Tercera fila de datos - [end] -->
+          <!-- Cuarta fila de datos - [end] -->
 
-          <!-- Cuarta fila de datos - [start] -->
+          <!-- Quinta fila de datos - [start] -->
           <div class="columns">
             <div class="column">
               <label for="marca" class="label">Marca</label>
@@ -280,7 +302,161 @@
               </div>
             </div>
           </div>
-          <!-- Cuarta fila de datos - [end] -->
+          <!-- Quinta fila de datos - [end] -->
+
+          <!-- Sexta fila de datos - [start] -->
+          <div class="columns">
+            <div class="column">
+              <label for="horaLlegada" class="label">Hora Llegada</label>
+              <div class="control">
+                <input type="time" class="input" id="horaLlegada" name="horaLlegada" v-model="servicio.CysHraLle" />
+              </div>
+            </div>
+            <div class="column">
+              <label for="movilEntrada" class="label">Móvil Entrada</label>
+              <div class="control has-icons-left">
+                <input
+                  type="text"
+                  class="input"
+                  id="movilEntrada"
+                  name="movilEntrada"
+                  v-model="servicio.CysMEx1"
+                />
+              </div>
+            </div>
+            <div class="column">
+              <label for="movilNro" class="label">Número</label>
+              <div class="control has-icons-left">
+                <input
+                  type="number"
+                  class="input"
+                  id="movilNro"
+                  name="movilNro"
+                  v-model="servicio.CysMov1"
+                />
+              </div>
+            </div>
+            <div class="column is-6">
+              <label for="fallaDeclarada" class="label">Falla Declarada</label>
+              <div class="control has-icons-left">
+                <input
+                  type="text"
+                  class="input"
+                  id="fallaDeclarada"
+                  name="fallaDeclarada"
+                  v-model="servicio.CysFalla"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Sexta fila de datos - [end] -->          
+
+          <!-- Septima fila de datos - [start] -->
+          <div class="columns">
+            <div class="column is-4">
+              <label for="fchIni" class="label">Inicio</label>
+              
+              <div class="columns">
+                <div class="column">
+                  <div class="control">
+                    <input type="date" class="input" id="fchIni" name="fchIni" v-model="servicio.cysFch" />
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="control has-icons-left">
+                    <input
+                      type="time"
+                      class="input"
+                      id="hraIni"
+                      name="hraIni"
+                      v-model="servicio.CysHraIni"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-6">
+              <label for="CyfFunId" class="label">Funcionario</label>              
+              <div class="columns">
+                <div class="column padding-right0">
+                  <div class="control has-icons-left">
+                    <input
+                      type="number"
+                      class="input"
+                      id="CyfFunId"
+                      name="CyfFunId"
+                      v-model="servicio.CyfFunId"
+                    />
+                  </div>
+                </div>                
+                <div class="column is-10 padding-left5">
+                  <div class="control has-icons-left">
+                    <input
+                      type="text"
+                      class="input"
+                      id="CyfFunNom"
+                      name="CyfFunNom"
+                      v-model="servicio.CyfFunNom"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>            
+            <div class="column padding-left5">
+              <label for="cysBox" class="label">Box</label>   
+              <div class="control has-icons-left">
+                <input
+                  type="number"
+                  class="input"
+                  id="cysBox"
+                  name="cysBox"
+                  v-model="servicio.CysBox"
+                />
+              </div>
+            </div> 
+          </div>
+          <!-- Septima fila de datos - [end] -->
+          
+
+          <!-- Octava fila de datos - [start] -->
+          <div class="columns">
+            <div class="column is-6">
+              <div class="columns">
+                <div class="column is-4">
+                  <label for="horaFin" class="label">Inicio</label>
+                  <div class="control">
+                    <input type="time" class="input" id="horaFin" name="horaFin" v-model="servicio.cysFch" />
+                  </div>
+                </div>
+                <div class="column is-6">
+                  <label for="CysMEx2" class="label">Móvil Salida</label>   
+                  <div class="control has-icons-left">
+                    <input
+                      type="number"
+                      class="input"
+                      id="CysMEx2"
+                      name="CysMEx2"
+                      v-model="servicio.CysMEx2"
+                    />
+                  </div>
+                </div>                         
+                <div class="column is-10">
+                  <label for="CysMov2" class="label">Número</label>   
+                  <div class="control has-icons-left">
+                    <input
+                      type="text"
+                      class="input"
+                      id="CysMov2"
+                      name="CysMov2"
+                      v-model="servicio.CysMov2"
+                    />
+                  </div>
+                </div>      
+              </div>
+            </div>
+          </div>  
+          <!-- Octava fila de datos - [end] -->
+
           <div class="columns">
             <div class="column is-4 is-offset-4" id="update">
               <a class="button is-info width100Porcent" @click="update">
@@ -310,7 +486,8 @@ export default {
       cysOrd: 0,
       cysFch: "",
       cysLug: "",
-      estado: "",
+      estado: "input",
+      classEstado: "",
       servicio: {}
     };
   },
@@ -335,19 +512,22 @@ export default {
       .then(res => {
         this.servicio = res.data;
         console.log(res.data);
+        
+        this.estado = this.servicio.CysCancel === 1 ? "Activo" : "Cancelado";
+        this.classEstado = this.servicio.CysCancel === 1 ? "input Activo" : "input Cancelado";
+        console.log(this.servicio.CysSeccion)
+        if (this.servicio.CysSeccion === "M") {
+          this.titulo = "MECANICA";
+        } else if (this.servicio.CysSeccion === "E") {
+          this.titulo = "ELECTRICIDAD";
+        } else {
+          this.titulo = "";
+        }
       })
       .catch(err => {
         console.log(err);
       });
 
-    this.estado = this.servicio.CysCancel === 1 ? "Activo" : "Cancelado";
-    if (this.servicio.CysSeccion === "M") {
-      this.titulo = "MECANICA";
-    } else if (this.servicio.CysSeccion === "E") {
-      this.titulo = "ELECTRICIDAD";
-    } else {
-      this.titulo = "";
-    }
   },
   methods: {
     validoMes(id) {
@@ -426,6 +606,16 @@ export default {
 </script>
 
 <style scoped>
+.Cancelado {
+  color: white;
+  background-color: red;
+}
+
+.Activo{
+  color: white;
+  background-color: green;
+
+}
 #update {
   color: white;
 }
