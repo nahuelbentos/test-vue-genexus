@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import routes from './routes'
 import msToMm from './filters/ms-to-mm'
+import stringToTime from './filters/string-to-time'
 
 //test fontAwesome
 
@@ -18,6 +19,7 @@ Vue.config.productionTip = false
 // Definimos que la instancia de Vue, utiliza VueRouter
 Vue.use(VueRouter)
 Vue.use(msToMm)
+Vue.use(stringToTime)
 
 // Definimos la instancia de VueRouter y le agregamos las rutas
 

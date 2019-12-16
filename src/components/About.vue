@@ -23,6 +23,7 @@
                   <input type="text" id="Modo" class="input is-hovered" v-model="modo"/>
               </li>
             </ul>
+            <button class="button is-link is-outlined" type="button" @click="verServicios">Ver servicios!</button>
             <button class="button is-link is-outlined" type="button" @click="consumirWS">Consumir WS!</button>
             <button class="button is-link is-outlined" type="button" @click="goABMServicio">ir a ABMServicio!</button>
           </div>
@@ -65,6 +66,11 @@ export default {
         //       console.log(response)
         //   })
         //   .catch( err => console.log(err))
+      },
+      verServicios(){
+        console.log('hola mundo desde consumirWS');
+        this.$router.push({name: 'verservicios', params: { } })
+        
       },
       consumirWS(){
         console.log('hola mundo desde consumirWS');
