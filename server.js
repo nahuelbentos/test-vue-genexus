@@ -36,8 +36,30 @@ function token(req, res) {
     })
 }
 
-function test(req, res){
+function test(req, res) {
   console.log('Server OK')
+}
+
+function obtenerServicios(req, res) {
+
+  console.log('==============================')
+  console.log('Parameters: ')
+  console.log(req.query.Fecha)
+  console.log('==============================')
+  console.log('Execute: ')
+  axios
+    .post('http://192.1.0.71/ACU_Web.NetEnvironment_Prototipo/rest/wsObtenerServiciosPorFecha', {
+      Fecha: req.query.Fecha
+    })
+    .then(response => {
+      console.log('Response: ')
+      console.log(response.data)
+      res.send(response.data.Servicios)
+    })
+    .catch(err => {
+      console.log('Error: ')
+      console.log(err)
+    })
 }
 
 
@@ -102,10 +124,13 @@ function definirServicios() {
     .get(token)
 
   app.route('/test')
-  .get(test)
+    .get(test)
 
   app.route('/obtenerSDTServicios')
     .get(obtenerSDTServicios)
+
+  app.route('/obtenerServicios')
+    .get(obtenerServicios)
 
   app.route('/executeABMServicios')
     .get(executeABMServicios)

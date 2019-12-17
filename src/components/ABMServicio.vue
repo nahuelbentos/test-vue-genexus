@@ -29,7 +29,7 @@
             <div class="column">
               <label for="cysCancel" class="label">Estado:</label>
               <div class="control">
-                <input name="cysCancel" id="cysCancel" type="text" v-bind:class="classEstado" placeholder="Estado"  v-model="estado"/>
+                <input name="cysCancel" id="cysCancel" type="text" v-bind:class="servicio.CysCancel === 1 ? 'input Activo' : 'input Cancelado'" placeholder="Estado"  v-model="estado"/>
               </div>
             </div>
           </div>
